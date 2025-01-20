@@ -6,9 +6,9 @@ public class Piece {
                 // Placer les pièces uniquement sur les cases noires
                 if ((i + j) % 2 == 0){  // Si la case est noire
                     if (i < 3) {
-                        plateau[i][j] = "B";  // Placer une pièce noire sur les 3 premières lignes
+                        plateau[i][j] = "\u001B[31mB\u001B[0m";  // Placer une pièce noire sur les 3 premières lignes
                     } else if (i > 4) {
-                        plateau[i][j] = "W";  // Placer une pièce blanche sur les 3 dernières lignes
+                        plateau[i][j] = "\u001B[34mW\u001B[0m";  // Placer une pièce blanche sur les 3 dernières lignes
                     }
                 }
             }

@@ -1,15 +1,15 @@
 public class Plateau {
 
-    public static void plateauVierge(String[][] plateau) {
+    public static void plateauVierge(String[][] plateau) { //remplir le plateau
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                plateau[i][j] = "_";  // Remplir chaque case avec un tiret
+                plateau[i][j] = "_";
             }
         }
     }
 
 
-    public static void afficherPlateau(String[][] plateau) { // pour pouvoir continuer a jouer 
+    public static void afficherPlateau(String[][] plateau) { // afficher le plateau
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -17,7 +17,6 @@ public class Plateau {
             }
             System.out.println();
         }
-        Regles.mouvement(plateau);
 
     }
 }
