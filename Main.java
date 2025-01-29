@@ -3,7 +3,9 @@ public class Main {
     public static void main(String[] args) {
 
         String reponse = Acceuil.acceuil(args);
+        boolean check = true;
 
+        // commencer a jouer
         if (reponse.equals("y")) {
             
         } else {
@@ -15,22 +17,16 @@ public class Main {
             }
         }
 
-        try {
-            Thread.sleep(1000); // Pause de 1 secondes
-        } catch (InterruptedException e) {
-            System.out.println("Une interruption est survenue : " + e.getMessage());
-        }
+        // Chargement du jeu
+        Chargement.attendre(1000);
 
         System.out.println("Préparation du Jeux..."); //chargement
         System.out.println();
 
-        try {
-            Thread.sleep(3000); // Pause de 3 secondes
-        } catch (InterruptedException e) {
-            System.out.println("Une interruption est survenue : " + e.getMessage());
-        }
+        Chargement.attendre(2000);
 
-        String[][] plateau = new String[10][10];
+        //Créer le plateau
+        String[][] plateau = new String[15][15];
             
         // Initialiser le plateau vierge avec "_"
         Plateau.plateauVierge(plateau);
@@ -41,11 +37,15 @@ public class Main {
         // Afficher le plateau
         Plateau.afficherPlateau(plateau);
             
-        for (int i = 1; i >= 0; i++) { //Alterner les tours
+        //Alterner les tours
+        for (int i = 1; i >= 0; i++) { 
                 
             Regles.mouvement(plateau, i);
             Plateau.afficherPlateau(plateau);
-                
+            check = Plateau.check(plateau);
+            if (!check) {
+                break;
+            }
         }
     }
 }
